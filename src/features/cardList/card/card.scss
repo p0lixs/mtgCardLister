@@ -1,0 +1,18 @@
+.item {
+  justify-content: center;
+  display: flex;
+  flex-flow: column;
+  padding: 1em;
+
+  .img-container {
+    width: 146px;
+    height: 204px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  button {
+    margin-left: 1em;
+  }
+}
