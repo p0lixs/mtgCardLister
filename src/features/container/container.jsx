@@ -13,12 +13,17 @@ export const Container = () => {
   const cardList = useSelector((state) => state.cardList.value);
   const dispatch = useDispatch();
 
-  const handleFormText = (addItem) => {
-    getCard(addItem.name);
+  const handleFormText = (form) => {
+    console.log(form);
+    getCard(form);
   };
 
-  const getCard = async (name) => {
-    client.get('search?q=' + name).then((response) => {
+  const getCard = async (form) => {
+    let query = 'search?q=' + form.name;
+    if (form.colors && form.colors.length > 0) {
+      query += '+(c%3A' + form.colors.join('+OR+c%3A') + ')';
+    }
+    client.get(query).then((response) => {
       dispatch(setList(response.data.data));
     });
   };
