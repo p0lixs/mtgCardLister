@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card } from './card/card';
+import { MagicCard } from './card/card';
 import './cardList.scss';
 
 export const CardList = (props) => {
   const { list } = props;
-  const card_list = list.map((item) => <Card card={item} key={item.id}></Card>);
+  const card_list = list.map((item) => <MagicCard card={item} key={item.id}></MagicCard>);
   return <div className="todo-list">{list.length ? card_list : 'No cards found'}</div>;
 };

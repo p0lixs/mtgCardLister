@@ -1,8 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { removeCard } from '../cardListSlice';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import './card.scss';
 
-export const Card = (props) => {
+export const MagicCard = (props) => {
   const { card } = props;
   const dispatch = useDispatch();
 
@@ -11,18 +13,15 @@ export const Card = (props) => {
   };
 
   return (
-    <div className="item">
-      <span>{card.name}</span>
-      {card.image_uris ? (
-        <div className="img-container">
-          <img src={card.image_uris.small} alt={card.id} />{' '}
-        </div>
-      ) : (
-        <span>no image</span>
-      )}
-      <button type="button" onClick={() => remove(card.id)}>
-        x
-      </button>
-    </div>
+    <Card style={{ width: '30rem' }}>
+      <Card.Img variant="top" src={card.image_uris?.art_crop} alt={card.id} />
+      <Card.Body>
+        <Card.Title>{card.name}</Card.Title>
+        <Card.Text>{card.oracle_text}</Card.Text>
+        <Button variant="primary" onClick={() => remove(card.id)}>
+          Remove
+        </Button>
+      </Card.Body>
+    </Card>
   );
 };
