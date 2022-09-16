@@ -30,6 +30,7 @@ export const Container = () => {
 
   return (
     <div className="form-container">
+      {/* <Formulario handleFormText={handleFormText}></Formulario> */}
       <Formulario handleFormText={handleFormText}></Formulario>
       <CardList list={cardList}></CardList>
     </div>
