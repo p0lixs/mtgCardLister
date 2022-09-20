@@ -1,10 +1,10 @@
-import { Container } from "./features/container/container";
+import { AppContainer } from "./features/app-container/app-container";
 import "./scss/styles";
 
 export const App = () => {
   return (
     <div className="App">
-      <Container></Container>
+      <AppContainer></AppContainer>
     </div>
   );
 };

@@ -11,6 +11,7 @@ const validationSchema = Yup.object().shape({
 
 export const Formulario = (props) => {
   const { handleFormText } = props;
+  const colors = ["w", "b", "u", "r", "g"];
   return (
     <div className="container">
       <Formik
@@ -31,11 +32,9 @@ export const Formulario = (props) => {
               <Form.Control type="text" name="card" placeholder="Enter card name..." onChange={handleChange} value={values.card} />
             </Form.Group>
             <Form.Group controlId="formColors" className="colors-form">
-              <ColorCheck color="w" handleChange={handleChange} />
-              <ColorCheck color="b" handleChange={handleChange} />
-              <ColorCheck color="u" handleChange={handleChange} />
-              <ColorCheck color="r" handleChange={handleChange} />
-              <ColorCheck color="g" handleChange={handleChange} />
+              {colors.map((c) => {
+                return <ColorCheck color={c} handleChange={handleChange} key={c} />;
+              })}
             </Form.Group>
             <Button variant="primary" type="submit">
               Search
