@@ -1,5 +1,5 @@
-import { Container } from './features/container/container';
-import './scss/styles';
+import { Container } from "./features/container/container";
+import "./scss/styles";
 
 export const App = () => {
   return (
